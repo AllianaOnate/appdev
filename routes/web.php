@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\LoginController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,3 +16,19 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/login' , [LoginController::class, 'LoginView']);
+
+Route::get('/admin' , function(){
+    return view('pageredirection.admin');
+});
+
+Route::get('/user' , function(){
+    return view('pageredirection.user');
+});
+
+//post
+Route::post('/login' , [LoginController::class, 'login'])->name('user.login');
+
+
+
